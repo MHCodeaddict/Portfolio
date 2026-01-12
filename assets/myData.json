@@ -1,0 +1,27 @@
+{
+	"name" : "Mostafa Hussain",
+	"email" : "Mostafa.h95@hotmail.com",
+	"bio" : "Welcome, I'm Mostafa Hussain, a Software developer with with a growing and diverse tech stack that gives me the know how to develop websites, applications, and video games! Explore my portfolio to see my latest/best works!",
+	"headshot" : "image.png",
+	"githubLink" : "https://github.com/MHCodeAddict/",
+	"projects" : [
+		{
+		"id" : "1",
+		"title" : "Unity / C# - Divine Gambit game",
+		"description" : "RPG Dice game developed on Unity",
+		"link" : "https://www.youtube.com/watch?v=0iWrXk_7TBU"
+		},
+		{
+		"id" : "2",
+		"title" : "ASP.net - Vacation booking website",
+		"description" : "An ASP.net website for browsing and booking Vacation packages",
+		"link" : "https://github.com/MHCodeAddict/Vacation-booking/"
+		},
+		{
+		"id" : "3",
+		"title" : "Java Springboot Projects",
+		"description" : "",
+		"link" : "https://github.com/MHCodeaddict/SpringBoot"
+		}
+	]
+}
