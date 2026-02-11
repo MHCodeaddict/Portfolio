@@ -20,33 +20,9 @@
 		{
 		"id" : "3",
 		"title" : "Java Springboot Projects",
-		"description" : "",
+		"description" : "A collection of SpringBoot java website assignments",
 		"link" : "https://github.com/MHCodeaddict/SpringBoot"
 		}
-		,
-		{
-		"id" : "4",
-		"title" : "Java Springboot Projects",
-		"description" : "",
-		"link" : "https://github.com/MHCodeaddict/SpringBoot"
-		},
-		{
-		"id" : "5",
-		"title" : "Java Springboot Projects",
-		"description" : "",
-		"link" : "https://github.com/MHCodeaddict/SpringBoot"
-		},
-		{
-		"id" : "6",
-		"title" : "Java Springboot Projects",
-		"description" : "",
-		"link" : "https://github.com/MHCodeaddict/SpringBoot"
-		},
-		{
-		"id" : "7",
-		"title" : "Java Springboot Projects",
-		"description" : "",
-		"link" : "https://github.com/MHCodeaddict/SpringBoot"
-		}
+		
 	]
 }
