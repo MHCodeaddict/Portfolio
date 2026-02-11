@@ -1,6 +1,7 @@
-import React, { useEffect, useState} from 'react';
+import { useEffect, useState} from 'react';
 import { Paper, Typography, Box } from "@mui/material";
-import { SimpleTreeView, TreeItem } from "@mui/x-tree-view";
+import { blue } from "@mui/material/colors";
+import ProjectsAurora from './components/ProjectsAurora';
 
 //Function processes thumbnails for project paper cards
 function getProjectThumbnail(project: myData): string | null {
@@ -44,20 +45,23 @@ function ProjectCard({ project }: { project: myData }) {
       elevation={3}
       sx={{
         textDecoration: "none",
-        color: "inherit",
-        backgroundColor: "background.color",
+        color: "white",
+        backgroundColor: "#dbeafe",
         border: "4px solid",
         borderColor: "grey.900",
         display: "flex",
         flexDirection: "column",
         height: "100%",
         cursor: "pointer",
-        "&:hover": { boxShadow: 10 },
+        "&:hover": {
+          boxShadow: 10,
+          backgroundColor: blue[200],
+        },
       }}
     >
       {/* Title */}
       <Box sx={{ p: 2, borderBottom: "4px solid", borderColor: "grey.900" }}>
-        <Typography variant="h6" fontWeight={600} color="blue">
+        <Typography variant="h6" fontWeight={600} color="black">
           {project.title}
         </Typography>
       </Box>
@@ -118,10 +122,16 @@ function App() {
 const [profile, setProfile] = useState<ProfileData | null>(null);
 
 useEffect(() => {
-  fetch("/assets/myData.json")
-    .then(res => res.json())
+  fetch(import.meta.env.BASE_URL + "assets/myData.json")
+    .then((res) => {
+      if (!res.ok) throw new Error("Network response was not ok");
+      return res.json();
+    })
     .then((data: ProfileData) => {
       setProfile(data);
+    })
+    .catch((err) => {
+      console.error("Error fetching profile data:", err);
     });
 }, []);
 
@@ -131,7 +141,7 @@ useEffect(() => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header Section */}
-      <header className="bg-white shadow-sm">
+      <header className="bg-blue-100 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center gap-8">
             {/* Profile Photo */}
@@ -159,18 +169,25 @@ useEffect(() => {
         </div>
       </header>
 
-      {/* Projects Section */}
-      <main className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-gray-900 mb-8">My Projects</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {profile.projects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
-        </div>
-      </main>
+
+      {/* Projects Section with Full-Width Vanta Fog Background */}
+      <div className="relative w-full py-12">
+        {/* Vanta Fog Background - spans full viewport width */}
+        <ProjectsAurora />
+        
+        {/* Projects content - centered with max-width */}
+        <main className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8">My Projects</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {profile.projects.map((project) => (
+              <ProjectCard key={project.id} project={project} />
+            ))}
+          </div>
+        </main>
+      </div>
 
       {/* Footer */}
-      <footer className="bg-white border-t mt-12">
+      <footer className="bg-blue-100 border-t mt-12">
         <div className="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
           <p className="text-center text-gray-600">
             © {new Date().getFullYear()} {profile.name}. All rights reserved.

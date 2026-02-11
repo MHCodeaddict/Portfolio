@@ -20,8 +20,9 @@
 		{
 		"id" : "3",
 		"title" : "Java Springboot Projects",
-		"description" : "",
+		"description" : "A collection of SpringBoot java website assignments",
 		"link" : "https://github.com/MHCodeaddict/SpringBoot"
 		}
+		
 	]
 }
